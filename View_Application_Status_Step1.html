@@ -1,0 +1,312 @@
+
+
+<!DOCTYPE html>
+
+<html>
+<head><title>
+	Leaves Status
+</title><link rel="shortcut icon" href="Images/favicon.ico" /><link rel="stylesheet" type="text/css" href="css/mystyle.css" /><link type="text/css" href="css/reset.css" rel="stylesheet" /><link type="text/css" href="css/module.css" rel="stylesheet" /><link type="text/css" href="css/main.css" rel="stylesheet" /><link type="text/css" href="css/jquery.autocomplete.css" rel="stylesheet" />
+    <script type="text/javascript" src="Scripts/jquery-1.4.1.min.js"></script>
+    <script type="text/javascript" src="Scripts/jquery.colorbox.js"></script>
+    <script type="text/javascript" src="Scripts/main.js"></script>
+    <script type="text/javascript" src="Scripts/jquery.min.js"></script>
+    <script type="text/javascript" src="Scripts/datetimepicker.js"></script>
+    <script type="text/javascript" src="Scripts/Disable_rightclick.js"></script>
+    <script type="text/javascript" src="Scripts/Footer.js"></script>
+    <script type="text/javascript" src="Scripts/Disable_BackButton.js"></script>
+    <script type="text/javascript" src="Scripts/jquery.autocomplete.js"></script>
+    <link type="text/css" href="Datepicker/datepicker_style.css" rel="stylesheet" />
+    <script type="text/javascript" src="Datepicker/jquery-1.7.2.min.js"></script>
+    <script type="text/javascript" src="Datepicker/jquery-ui.js"></script>
+    
+    
+
+    <script type="text/javascript">
+        var window_style = "width=900,height=1000,toolbar=0,menubar=0,location=0,status=yes,scrollbars=yes,resizable=yes,left=50,top=50";
+        function Popup_window(window_url) {
+            window.open(window_url, "", window_style);
+        }
+    </script>
+  
+</head>
+<body>
+    <form name="aspnetForm" method="post" action="./View_Application_Status_Step1.aspx" id="aspnetForm" autocomplete="off">
+<div>
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="wpZADlOIHyUFXm/Aj83/sRF4ypdUhaQCFIw5vOdwpEmoJuZNNPnzrjs1LXVEwoAMY2T7EKbK/aqFzxwXiwuJ/wR2ZgT0ggznm2A2DDsSh4qVHRq0tH9A0hHjZ/K4JyI7FxyeQ8a0kYRcVOBqdT3HIStc4o1mAtl+twyLiAVcblY/j/C6hcsLS1VcudMLTr8u3PgwusmWqD65QHVZmLWxdZ2cSLrziXhWIS+TKNnf0Ay7/frdkz82d0Z18Aa9hFjYSbDH63En3eov7BnSvpqIPKV1Dk0smd0A4W7fEb9rF+g8vGgYGEQYRlsqEKzje2d59Y8c06W9cQyBBx5k//Rs6RoycbVkJNNOqwtfoykaozq4Wg8VelvC5RtPLIJCASQehgUQ6KCneIuMDSnRt8sp+E5I1bPIzimmOA5OWlHrCnJ2KJHEinmK30R883WpKBR5krvj239FfdvVj20UNgJ4MobwRMQO0IiO/PYiKWEhkeycfR8rD+lJ+kwmSPfCPbcP+8j1YQUrQ73O2R6ee/bpMWWDbQ5VIOCmsNX4n+fB5zxLiJhBj1Schdf07m9kPvzjhfEdDPI/kQFpqN8PYRdgtic+aagDrSqKbLcxpcFhLzUKYcr0ej0ujbs99RTxUSny9vEyPu9tWmNoQhfytYdBjMS+J6ru7mqdwV4FK2O0cR2+V4C/xFkJozNeuNcBATtU7wAsU+PxahSgusZuuVjDJEzenvG6eyFzVMUEHIfUa1SFXvS0zBAe5hmIu23V4qLNKkRfS0h/k6WZiRGMLQQQuNl+k3iElFmDtBTWXKmzpjuDbwyasbgPNjtCjhHkBsRlwTL9fOXjIpS29kcx7GXfCziGhHPEQfNEO+zaAzXfxuWm1ia17gx9uZP9B0wz4JRvbjpy4AYJ+Pk/LUX1n/Ytk3j50Wh1JhMa6hDYzQ9Bi2cmdnh5ByVGX7nJo2qaT5H52gyxHQDV+Sap9XI+NRyf7zw5ofS7t1hjD66yRmSU4yXrqwM6Nb5MxjDl1aonNzZsf3Oz3VewMzrYLW7qN+JwJaroa795R4RHxQ2XbJtlX1lNu/ZSG/NiGLccamCEsqIQ/DkdSScQdxnjQfo8xI1SG8LoMbL8z3bicP5rUPDA/MNYUSzMu6GsGMxUmXe/z/91whYZgSjWZxb6Qhzmrqt6MAFP5lRFJtw/J8JC/EwOjJZImQpmylY8iBgSAWQ7KmQDyuOsG1D+i8w7zUs6xeZNutITVjzfpCGKUSwA+hjil4gSK4n+eubHzaG8xXZ6v5TTABnNXJFWFnCRtT+a4k7wJKPisPTB6AfipmnOjF53m2xKnO49DFnw7Ma/VeUBTjIX44tENDeEYyRvawXi2stiPXnRerdhHqQ4FkZrKtxRloCaVNS4CtQA19H3ZFe/zkr/lb8+IHhT+Z5JCVNKXjhe0KwaE9L9Eo8vlROGgAwSHMlxAfDAexGEdSTHK0lM3hzXAOO9GjJdIvAqQlX6LLu0iY2xsPYgjvry82M3ErrNsNeexSzSWgVEJ545Rp4wu/yL1duS8B43Xeuw+7vn2XyRHCqiVZcXwhmq02d/GsDyZUlR8voCp6LhE52LSDl8ITC3IgFRpZCW6qa+AG6YDDDL7lz6IuRdipWbp3F0I5HIDZzJpVDVYI+/TK9VrIllo1Du5KV/ak+5SsODFLO5MU6zgdYnQSC8c1Ae6NcYnmDGpIqeWnZ7WK1hhN7IIijcAYFdEGj2XlVicDZaGBiIAIfFI2GmU/SgiFEUEk4g/v2Wuc6bPJq9LQxvUj6HTT6mdgyrBC9ALp5jlgAZ+9vZoG3495QqWvD7wBUk6/H/vU+HRPAm5EKcRVvVOfvytRlNEeDhg4h1zr9bUpx63A7sOE2tYA==" />
+</div>
+
+<script type="text/javascript">
+//<![CDATA[
+var theForm = document.forms['aspnetForm'];
+if (!theForm) {
+    theForm = document.aspnetForm;
+}
+function __doPostBack(eventTarget, eventArgument) {
+    if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+        theForm.__EVENTTARGET.value = eventTarget;
+        theForm.__EVENTARGUMENT.value = eventArgument;
+        theForm.submit();
+    }
+}
+//]]>
+</script>
+
+
+<script src="/SWD/WebResource.axd?d=rbCQmqaPllqTM7rtEyTJjOQiSmSxvVwv2TdfICjPBszNjjADQa3E23D1VDG4V-KX-HRpVnZlmxRdtJ60vRhmooxZClk06mtKY-pM2AyB4KI1&amp;t=638901734248157332" type="text/javascript"></script>
+
+<div>
+
+	<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="1A07E830" />
+	<input type="hidden" name="__SCROLLPOSITIONX" id="__SCROLLPOSITIONX" value="0" />
+	<input type="hidden" name="__SCROLLPOSITIONY" id="__SCROLLPOSITIONY" value="0" />
+	<input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="" />
+	<input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="" />
+	<input type="hidden" name="__VIEWSTATEENCRYPTED" id="__VIEWSTATEENCRYPTED" value="" />
+</div>
+    <div id="main" align="center">
+        <table id="t1" border="0" cellpadding="0" cellspacing="0" width="100% "
+            bgcolor="White">
+            <tr>
+                <td>
+                    <div id="Div1" align="left">
+                        <div class="headerWrapper">
+                            <div class="headerWrapperFix">
+                                <h1 class="hidden">
+                                    BITS Pilani</h1>
+                                <div class="logoWrapper">
+                                     <a href="#" class="logo" target="_blank">
+                                         <img src="Images/BITS_Pilani_campus_logo.gif" alt="BITS Logo" />
+                                     </a>
+                                </div>
+                                 
+                              <ul class="mainNav">
+                                 <li><a href="Instructions.aspx">Apply For Leaves</a></li>
+                                 <li><a href="Downloads/Parent's_Consent_Form.pdf" target="_blank">Download Parent's Consent Form</a></li>
+                                 <li><a href="View_Application_Status_Step1.aspx">Leaves Status</a></li>
+                            </ul>  
+                            
+                
+                               <ul class="siteInfo" style="right: 110px; width: 380px; top: 8px; height: 50px">
+                                    <li style="width: 435px">
+                                        <p class="siteLog" style="text-align: center">
+                                            <br />
+                                            <span style="font-size: 0.9em"><span style="font-size: 1.1em">Student Welfare Division (SWD)</span> </span>
+                                        </p>
+                                    </li>
+                                </ul>
+                                <!-- Top Right Colored Strip -->
+                                <div class="topColorBar">
+                                    <span class="color yellow"></span>
+                                    <span class="color blue"></span>
+                                    <span class="color red"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="nav-blue-bar"></div>
+                    </div>
+                </td>
+            </tr>
+           <tr>
+                           
+                            <td  class="body_txt_in" style="height: 30px">
+                            <table id="UserInfo" style="width: 100%">
+                            <tbody>
+                            <tr>
+                            <td width="70%" align="left"style="margin-left:45px "><div> <span style="color:#211d70" ><strong><span style="color:#211d70">&nbsp;&nbsp;&nbsp;&nbsp;W</span>elcome</strong>,</span>
+                              <span id="ctl00_Name" style="display:inline-block;color:#211D70;font-weight:bold;width:469px;">SOUPTIK GHOSH</span></div>
+                            
+                            
+                            </td>
+                             <td width="30%"> 
+                                    <table id="table_logout_details" width="100%">
+                                        <tbody>
+                                            <tr>
+                                                
+                                                <td>
+                                                   <div id="div_logout" align="right" style="margin-right:20px">
+                                                     <span id="ctl00_lbl_current_date" style="color:#211D70;font-weight:bold;">Sunday, February 22, 2026</span>&nbsp;
+                                                       <span id="ctl00_lbl_spacer" style="color:#211D70;font-weight:bold;">|</span>&nbsp;
+                                                  
+                                                   <a class="footer" href="index.html"><strong><span style="font-size: 8pt">[Logout]</span></strong></a>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                            </td>
+                            </tr>
+                            </tbody>
+                            
+                            </table>
+                          
+                              
+                                </td>
+             
+</tr>  
+            <tr>
+                <td>
+                    <table align="center" border="0" cellpadding="0" cellspacing="0" width="100%" style="height: 300px">
+                        <tr>
+                            <td id="contentpane" style="width: 100%; vertical-align: top">
+                                <div align="center">
+                                    
+    
+    <table border="0"  cellpadding="0"  align ="center"cellspacing="0" style="width: 788px;">
+    <tbody>
+    <tr><td style="height:10px"></td></tr>
+    <tr valign="top">
+    <td class="head_already" width="100%" style="height: 20px; margin-right:150px">
+        <div align="center">
+        Leaves Status
+        </div>
+    </td>
+    </tr>
+     <tr><td style="height:10px"></td></tr>
+    </tbody>
+    </table>
+    <div id="ctl00_ContentPlaceHolder1_main_div" align="center">
+         <table border="0" class="body_txt_in"  align ="center"  cellspacing="0" style="width: 98%; height: 100%">
+        <tbody>
+            <tr><td style="height:10px"></td></tr>
+    
+             <tr>
+                    <td style="height: 30px; text-align: center;" colspan="3" >
+                     <div align="center"> 
+                       <div>
+                        <table cellspacing="0" rules="all" border="1"
+                        id="ctl00_ContentPlaceHolder1_DG1"
+                        style="border-color:#CCCCCC;border-width:1px;border-style:Solid;width:98%;border-collapse:collapse;">
+                 
+                     <thead>
+                         <tr align="left" valign="middle"
+                             style="color:Black;background-color:#F4F4F4;border-color:#CCCCCC;border-width:1px;border-style:solid;font-weight:bold;">
+                             <th style="width:50px;">Sr No.</th>
+                             <th>IDNO</th>
+                             <th>Name</th>
+                             <th>Hostel</th>
+                             <th>Room No.</th>
+                             <th>Departure Date</th>
+                             <th>Return Date</th>
+                             <th>Leave Reason</th>
+                             <th>Application Status</th>
+                             <th>Leaves Applied On</th>
+                             <th style="width:90px;">Action</th>
+                             <th style="width:160px;">Download Leave Approval</th>
+                         </tr>
+                     </thead>
+                 
+                     <tbody id="leaveTableBody">
+                         <!-- Dynamic rows will be inserted here -->
+                     </tbody>
+                 
+                 </table>
+</div>
+                        </div>
+                    </td>
+                </tr>
+                 
+                 <tr>
+                     <td style="height: 30px;" colspan="2">
+                     </td>
+                 </tr>
+
+        </tbody>
+        </table> 
+       </div><br />
+    <br /><br />
+	
+
+
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                  
+                </td>
+            </tr>
+        </table>
+    </div>
+       
+    
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script>
+        const { createClient } = supabase;
+        
+        const supabaseClient = createClient(
+            "https://xvbsdljanvnenidalvha.supabase.co",
+            "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inh2YnNkbGphbnZuZW5pZGFsdmhhIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjY5MjY3NzUsImV4cCI6MjA4MjUwMjc3NX0.lILWvc8njubkga1wzpWiHuHkaUxkew9QW4HPJ9ak0Xw"
+        );
+        
+        /* Load Leaves */
+        async function loadLeaves() {
+        
+            const { data, error } = await supabaseClient
+                .from('leave')
+                .select(`
+                    departure,
+                    return,
+                    reason,
+                    applied_on,
+                    student (
+                        idno,
+                        name,
+                        room,
+                        hostel (
+                            hostelname
+                        )
+                    )
+                `)
+                .order('applied_on', { ascending: false });
+        
+            if (error) {
+                console.error(error);
+                return;
+            }
+        
+            const tableBody = document.getElementById("leaveTableBody");
+            tableBody.innerHTML = "";
+        
+            data.forEach((row, index) => {
+        
+                const tr = document.createElement("tr");
+        
+                tr.innerHTML = `
+                    <td style="border-color:Black;">${index + 1}</td>
+                    <td style="border-color:Black;">${row.student.idno}</td>
+                    <td style="border-color:Black;">${row.student.name}</td>
+                    <td style="border-color:Black;">${row.student.hostel.hostelname}</td>
+                    <td style="border-color:Black;">${row.student.room}</td>
+                    <td style="border-color:Black;">${row.departure}</td>
+                    <td style="border-color:Black;">${row.return}</td>
+                    <td style="border-color:Black;">${row.reason}</td>
+                    <td style="color:DarkGreen;border-color:Black;font-weight:bold;">Approved</td>
+                    <td style="border-color:Black;">${new Date(row.applied_on).toLocaleString()}</td>
+                    <td style="border-color:Black;">
+                        <a href="View_Application_Status_Step2.html"><b>View Details</b></a>
+                    </td>
+                    <td style="border-color:Black;"><a href="View_Application_Status_Step2.html"><b>Download Leave Approval</b></a></td>
+                `;
+        
+                tableBody.appendChild(tr);
+            });
+        }
+        
+        loadLeaves();
+        </script>
+<script type="text/javascript">
+//<![CDATA[
+
+theForm.oldSubmit = theForm.submit;
+theForm.submit = WebForm_SaveScrollPositionSubmit;
+
+theForm.oldOnSubmit = theForm.onsubmit;
+theForm.onsubmit = WebForm_SaveScrollPositionOnSubmit;
+//]]>
+</script>
+</form>
+</body>
+</html>

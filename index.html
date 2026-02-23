@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>SWD Login</title>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<style>
+body {
+    font-family: Arial;
+    background: #f2f2f2;
+}
+
+.login-box {
+    width: 400px;
+    margin: 120px auto;
+    background: white;
+    padding: 30px;
+    border: 1px solid #4a9ace;
+}
+
+.login-title {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 25px;
+    text-align: center;
+    color: #211d70;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background: #211d70;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #16305a;
+}
+
+.error {
+    color: red;
+    text-align: center;
+    margin-bottom: 15px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="login-box">
+    <div class="login-title">Student Login</div>
+
+    <div class="error" id="errorMsg"></div>
+
+    <input type="text" id="idno" placeholder="Enter IDNO">
+    <input type="password" id="password" placeholder="Enter Password">
+
+    <button onclick="login()">LOGIN</button>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script>
+const { createClient } = supabase;
+
+const supabaseClient = createClient(
+  "https://xvbsdljanvnenidalvha.supabase.co",
+  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inh2YnNkbGphbnZuZW5pZGFsdmhhIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjY5MjY3NzUsImV4cCI6MjA4MjUwMjc3NX0.lILWvc8njubkga1wzpWiHuHkaUxkew9QW4HPJ9ak0Xw"
+);
+
+/* ================= COOKIE HELPERS ================= */
+
+function setCookie(name, value, minutes) {
+    const date = new Date();
+    date.setTime(date.getTime() + (minutes * 60 * 1000));
+    const expires = "expires=" + date.toUTCString();
+    document.cookie = name + "=" + encodeURIComponent(value) + ";" + expires + ";path=/";
+}
+
+function getCookie(name) {
+    const cname = name + "=";
+    const decodedCookie = decodeURIComponent(document.cookie);
+    const ca = decodedCookie.split(';');
+    for (let i = 0; i < ca.length; i++) {
+        let c = ca[i].trim();
+        if (c.indexOf(cname) === 0) {
+            return c.substring(cname.length, c.length);
+        }
+    }
+    return null;
+}
+
+/* ================= AUTO REDIRECT IF COOKIE EXISTS ================= */
+
+window.onload = function () {
+    const session = getCookie("studentSession");
+    if (session) {
+        window.location.href = "View_Application_Status_Step1.html";
+    }
+};
+
+/* ================= LOGIN FUNCTION ================= */
+
+async function login() {
+
+    const idno = document.getElementById("idno").value.trim();
+    const password = document.getElementById("password").value.trim();
+    const errorMsg = document.getElementById("errorMsg");
+
+    errorMsg.innerText = "";
+
+    if (!idno || !password) {
+        errorMsg.innerText = "Please enter ID and password.";
+        return;
+    }
+
+    const { data, error } = await supabaseClient
+        .from('student')
+        .select('*')
+        .eq('idno', idno)
+        .eq('password', password)
+        .single();
+
+    if (error || !data) {
+        errorMsg.innerText = "Invalid ID or Password.";
+        return;
+    }
+
+    // Store cookie for 30 minutes
+    setCookie("studentSession", JSON.stringify({
+        idno: data.idno,
+        name: data.name
+    }), 30);
+
+    window.location.href = "View_Application_Status_Step1.html";
+}
+</script>
+
+</body>
+</html>
