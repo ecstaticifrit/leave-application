@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Leave Approval Slip</title>
+
+<style>
+    @page {
+        size: A4;
+        margin: 0;
+    }
+
+    body {
+        margin: 0;
+        background: #dcdcdc;
+        font-family: Arial, sans-serif;
+    }
+
+    .a4 {
+        width: 210mm;
+        height: 297mm;
+        margin: auto;
+        background: white;
+        padding-top: 5mm; /* reduced from 30mm */
+        box-sizing: border-box;
+        position: relative;
+    }
+
+    .header {
+        text-align: center;
+        line-height: 1.6;
+    }
+
+    .header h2 {
+        margin: 0;
+        font-size: 17px;
+        font-weight: bold;
+    }
+
+    .header h3 {
+        margin: 6px 0;
+        font-size: 15px;
+    }
+
+    .content {
+        width: 45%;
+        margin: 40px auto 0 auto; /* moved upward */
+        font-size: 16px;
+    }
+
+    .row {
+        display: flex;
+        margin: 8px 0;
+    }
+
+    .label {
+        font-weight: bold;
+        width: 160px;
+    }
+
+    .value {
+        margin-left: 40px;
+    }
+
+    .approved {
+        color: green;
+        font-weight: bold;
+    }
+
+    .signature-section {
+        position: absolute;
+        bottom: 145mm;
+        right: 40mm; /* moved to right */
+        text-align: center;
+    }
+
+    .signature-section img {
+        width: 180px; /* reduced from 250px */
+        height: auto;
+    }
+
+</style>
+</head>
+
+<body>
+
+<div class="a4">
+
+    <div class="header">
+        <h2>BIRLA INSTITUTE OF TECHNOLOGY & SCIENCE, PILANI (PILANI CAMPUS)</h2>
+        <h3>Student Welfare Division (SWD)</h3>
+        <h3><strong>Leave Approval Slip</strong></h3>
+    </div>
+
+    <div class="content">
+
+        <div class="row">
+            <div class="label">IDNO</div>
+            <div id="idno" class="value">2025H1540803P</div>
+        </div>
+
+        <div class="row">
+            <div class="label">Name</div>
+            <div id="name" class="value">SOUPTIK GHOSH</div>
+        </div>
+
+        <div class="row">
+            <div class="label">Contact No.</div>
+            <div id="phno" class="value">8017162874</div>
+        </div>
+
+        <div class="row">
+            <div class="label">Hostel</div>
+            <div id="hostel" class="value">Malviya Bhawan</div>
+        </div>
+
+        <div class="row">
+            <div class="label">Room No.</div>
+            <div id="room" class="value">3219</div>
+        </div>
+
+        <div class="row">
+            <div class="label">Warden Name</div>
+            <div id="warden" class="value">Prof. Trilok Mathur</div>
+        </div>
+
+        <div class="row">
+            <div class="label">Departure Date</div>
+            <div id="departure" class="value">18-Dec-2025</div>
+        </div>
+
+        <div class="row">
+            <div class="label">Return Date</div>
+            <div id="return" class="value">04-Jan-2026</div>
+        </div>
+
+        <div class="row">
+            <div class="label">Approval Status</div>
+            <div class="value approved">Approved</div>
+        </div>
+
+    </div>
+
+    <div class="signature-section">
+        <img id="signatureImage" src="Images/Malviya.png" alt="Chief Warden Signature">
+    </div>
+
+</div>
+<script>
+    const params = new URLSearchParams(window.location.search);
+
+    document.getElementById("idno").textContent = params.get("id");
+    document.getElementById("name").textContent = params.get("name");
+    document.getElementById("hostel").textContent = params.get("hostel");
+    document.getElementById("room").textContent = params.get("room");
+    document.getElementById("departure").textContent = params.get("departure");
+    document.getElementById("return").textContent = params.get("returnDate");
+    document.getElementById("phno").textContent = params.get("phno");
+    document.getElementById("warden").textContent = params.get("warden");
+</script>
+</body>
+</html>
