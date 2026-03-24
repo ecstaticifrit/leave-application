@@ -234,16 +234,43 @@ function __doPostBack(eventTarget, eventArgument) {
     
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script>
+        function getFormattedCurrentDate() {
+            const today = new Date();
+
+            return today.toLocaleDateString('en-US', {
+                weekday: 'long',
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric'
+            });
+        }
+
+        document.getElementById("ctl00_lbl_current_date").textContent = getFormattedCurrentDate();
+
         const { createClient } = supabase;
         
         const supabaseClient = createClient(
             "https://xvbsdljanvnenidalvha.supabase.co",
             "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inh2YnNkbGphbnZuZW5pZGFsdmhhIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjY5MjY3NzUsImV4cCI6MjA4MjUwMjc3NX0.lILWvc8njubkga1wzpWiHuHkaUxkew9QW4HPJ9ak0Xw"
         );
+
+        function getIdnoFromCookie() {
+            const match = document.cookie
+                .split("; ")
+                .find(row => row.startsWith("studentSession="));
+
+            if (!match) return null;
+
+            const value = decodeURIComponent(match.split("=")[1]);
+            return JSON.parse(value).idno;
+        }
         
         /* Load Leaves */
         async function loadLeaves() {
-        
+            let studentid = getIdnoFromCookie();
+            if(!studentid){
+                window.location.replace("index.html");
+            }
             const { data, error } = await supabaseClient
                 .from('leave')
                 .select(`
@@ -251,15 +278,18 @@ function __doPostBack(eventTarget, eventArgument) {
                     return,
                     reason,
                     applied_on,
-                    student (
+                    student!inner (
                         idno,
                         name,
                         room,
+                        contact_no,
                         hostel (
-                            hostelname
+                            hostelname,
+                            wardenname
                         )
                     )
                 `)
+                .eq('student.idno', studentid)
                 .order('applied_on', { ascending: false });
         
             if (error) {
@@ -286,9 +316,13 @@ function __doPostBack(eventTarget, eventArgument) {
                     <td style="color:DarkGreen;border-color:Black;font-weight:bold;">Approved</td>
                     <td style="border-color:Black;">${new Date(row.applied_on).toLocaleString()}</td>
                     <td style="border-color:Black;">
-                        <a href="View_Application_Status_Step2.html"><b>View Details</b></a>
+                        <a href="View_Application_Status_Step2.html?departure=${encodeURIComponent(row.departure)}"><b>View Details</b></a>
                     </td>
-                    <td style="border-color:Black;"><a href="View_Application_Status_Step2.html"><b>Download Leave Approval</b></a></td>
+                    <td style="border-color:Black;">
+                        <a href="approval.html?id=${encodeURIComponent(row.student.idno)}&name=${encodeURIComponent(row.student.name)}&hostel=${encodeURIComponent(row.student.hostel.hostelname)}&room=${encodeURIComponent(row.student.room)}&departure=${encodeURIComponent(row.departure)}&returnDate=${encodeURIComponent(row.return)}&appliedOn=${encodeURIComponent(row.applied_on)}&phno=${encodeURIComponent(row.student.contact_no)}&warden=${encodeURIComponent(row.student.hostel.wardenname)}">
+                            <b>Download Leave Approval</b>
+                        </a>
+                    </td>
                 `;
         
                 tableBody.appendChild(tr);
