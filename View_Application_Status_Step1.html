@@ -245,6 +245,7 @@ function __doPostBack(eventTarget, eventArgument) {
             });
         }
 
+		document.getElementById("ctl00_Name").innerText = getNameFromCookie();
         document.getElementById("ctl00_lbl_current_date").textContent = getFormattedCurrentDate();
 
         const { createClient } = supabase;
@@ -263,6 +264,17 @@ function __doPostBack(eventTarget, eventArgument) {
 
             const value = decodeURIComponent(match.split("=")[1]);
             return JSON.parse(value).idno;
+        }
+
+		function getNameFromCookie() {
+            const match = document.cookie
+                .split("; ")
+                .find(row => row.startsWith("studentSession="));
+
+            if (!match) return null;
+
+            const value = decodeURIComponent(match.split("=")[1]);
+            return JSON.parse(value).name;
         }
         
         /* Load Leaves */
