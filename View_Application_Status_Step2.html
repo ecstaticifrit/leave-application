@@ -599,6 +599,7 @@ function getPreviousDateAt7PM(dateStr) {
 }
 
 async function loadData() {
+    let params = new URLSearchParams(window.location.search);
 
     const { data, error } = await supabaseClient
         .from("leave")
@@ -621,6 +622,7 @@ async function loadData() {
             )
         `)
         .eq("idno", idno)
+        .eq("departure", params.get("departure"))
         .order("applied_on", { ascending: false })
         .limit(1)
         .single();
