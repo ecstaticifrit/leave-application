@@ -127,7 +127,7 @@ function __doPostBack(eventTarget, eventArgument) {
                                                      <span id="ctl00_lbl_current_date" style="color:#211D70;font-weight:bold;">Sunday, February 22, 2026</span>&nbsp;
                                                        <span id="ctl00_lbl_spacer" style="color:#211D70;font-weight:bold;">|</span>&nbsp;
                                                   
-                                                   <a class="footer" href="index.html"><strong><span style="font-size: 8pt">[Logout]</span></strong></a>
+                                                   <a class="footer" onclick="logout()"><strong><span style="font-size: 8pt">[Logout]</span></strong></a>
                                                     </div>
                                                 </td>
                                             </tr>
@@ -234,6 +234,12 @@ function __doPostBack(eventTarget, eventArgument) {
     
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script>
+
+		function logout() {
+            document.cookie = "studentSession=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+            window.location.href = "index.html";
+        }
+		
         function getFormattedCurrentDate() {
             const today = new Date();
 
